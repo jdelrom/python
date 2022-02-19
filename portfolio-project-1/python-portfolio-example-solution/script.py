@@ -32,7 +32,8 @@ def load_smokers_list(lst, csv_file):
             if row['smoker'] == 'yes':
                 lst.append({'age': row['age'],
                             'smoker': row['smoker'],
-                            'bmi': row['bmi']})
+                            'bmi': row['bmi'],
+                            'region': row['region']})
         return lst
 
 age_child_list = []
