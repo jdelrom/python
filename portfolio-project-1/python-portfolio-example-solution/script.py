@@ -1,4 +1,5 @@
 import csv
+from matplotlib import pyplot as plt
 
 ages = []
 sex = []
@@ -24,17 +25,29 @@ load_lists(smoker, csv_data, 'smoker')
 load_lists(region, csv_data, 'region')
 load_lists(charges, csv_data, 'charges')
 
-smokers_list = []
-def load_smokers_list(lst, csv_file):
+male_smokers_list = []
+female_smokers_list = []
+non_smokers_list = []
+def load_smokers_list(lst1, lst2, lst3, csv_file):
     with open(csv_file) as csv_info:
         csv_dict = csv.DictReader(csv_info)
         for row in csv_dict:
-            if row['smoker'] == 'yes':
-                lst.append({'age': row['age'],
+            if row['smoker'] == 'yes' and row['sex'] == 'female':
+                lst1.append({'age': row['age'],
                             'smoker': row['smoker'],
                             'bmi': row['bmi'],
                             'region': row['region']})
-        return lst
+            elif row['smoker'] == 'yes' and row['sex'] == 'male':
+                lst2.append({'age': row['age'],
+                            'smoker': row['smoker'],
+                            'bmi': row['bmi'],
+                            'region': row['region']})
+            else:
+                lst3.append({'age': row['age'],
+                            'smoker': row['smoker'],
+                            'bmi': row['bmi'],
+                            'region': row['region']})
+        return lst1, lst2
 
 age_child_list = []
 def load_age_child_list(lst, csv_file):
@@ -47,8 +60,10 @@ def load_age_child_list(lst, csv_file):
                             'children_amt': row['children']})
         return lst
 
-load_smokers_list(smokers_list, csv_data)
+load_smokers_list(female_smokers_list, male_smokers_list, non_smokers_list, csv_data)
 load_age_child_list(age_child_list, csv_data)
 
-# print(smokers_list)
-print(age_child_list)
+print(female_smokers_list)
+
+
+# print(age_child_list)
