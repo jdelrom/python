@@ -34,16 +34,19 @@ def load_smokers_list(lst1, lst2, lst3, csv_file):
         for row in csv_dict:
             if row['smoker'] == 'yes' and row['sex'] == 'female':
                 lst1.append({'age': row['age'],
+                            'sex': row['sex'],
                             'smoker': row['smoker'],
                             'bmi': row['bmi'],
                             'region': row['region']})
             elif row['smoker'] == 'yes' and row['sex'] == 'male':
                 lst2.append({'age': row['age'],
+                            'sex': row['sex'],
                             'smoker': row['smoker'],
                             'bmi': row['bmi'],
                             'region': row['region']})
             else:
                 lst3.append({'age': row['age'],
+                            'sex': row['sex'],
                             'smoker': row['smoker'],
                             'bmi': row['bmi'],
                             'region': row['region']})
