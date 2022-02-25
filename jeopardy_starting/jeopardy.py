@@ -100,4 +100,15 @@ def average_value_word(word):
     average_value = only_values_df.value_num.mean()
     return round(average_value) 
 
-print(average_value_word('King'))
+# print(average_value_word('King'))
+
+#  Write a function that returns the count of the unique answers to all of the questions in a dataset. For example, 
+# after filtering the entire dataset to only questions containing the word "King", we could then find all of the 
+# unique answers to those questions. The answer “Henry VIII” appeared 3 times and was the most common answer.
+
+def count_unique_answers(word):
+    question_df = in_question(word)
+    unique_df = question_df.Answer.unique()    
+    return unique_df
+
+print(count_unique_answers('King'))
