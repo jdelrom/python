@@ -95,3 +95,9 @@ df['value_num'] = df.apply(lambda row:
 ## what is the average value of of questions that contain the word King
 ## write a function that does this
 def average_value_word(word):
+    question_df = in_question(word)
+    only_values_df = question_df[question_df.Value != 'None']
+    average_value = only_values_df.value_num.mean()
+    return round(average_value) 
+
+print(average_value_word('King'))
