@@ -39,10 +39,23 @@ def in_question(string_list):
 
 # print(['this', 'a'] in 'Hello this is a test')
 # print()
-answer = in_question(['King', 'England'])
+answer = in_question(['what', 'is'])
 print(answer.Question.head())
 # searchfor = ['(?=.*King)(?=.*England)']
 # new_df = df[df.Question.str.contains('|'.join(searchfor))]
 # print(new_df.Question.head())
 # new_df.style
 # print(new_df.head().Question)
+
+# We may want to eventually compute aggregate statistics, like .mean()
+# on the " Value" column. But right now, the values in that column are 
+# strings. Convert the " Value" column to floats. If you’d like to, you 
+# can create a new column with the float values.
+
+# Now that you can filter the dataset of question, use your new 
+# column that contains the float values of each question to find the 
+# “difficulty” of certain topics. For example, what is the average 
+# value of questions that contain the word "King"?
+
+# Make sure to use the dataset that contains the float values as the 
+# dataset you use in your filtering function.
