@@ -1,6 +1,9 @@
 import string
 import pandas as pd
-pd.set_option('display.max_colwidth', None)
+pd.set_option('display.max_columns', None)
+pd.set_option('max_colwidth', None)
+pd.set_option('display.max_rows', None)
+
 df = pd.read_csv('jeopardy_starting/jeopardy.csv')
 # print(df.columns)
 df = df.rename(columns={
@@ -39,13 +42,13 @@ def in_question(string_list):
 
 # print(['this', 'a'] in 'Hello this is a test')
 # print()
-answer = in_question(['what', 'is'])
-print(answer.Question.head())
+# answer = in_question(['what', 'is'])
+# print(answer)
 # searchfor = ['(?=.*King)(?=.*England)']
 # new_df = df[df.Question.str.contains('|'.join(searchfor))]
 # print(new_df.Question.head())
 # new_df.style
-# print(new_df.head().Question)
+# print(new_df.head())
 
 # We may want to eventually compute aggregate statistics, like .mean()
 # on the " Value" column. But right now, the values in that column are 
@@ -59,3 +62,36 @@ print(answer.Question.head())
 
 # Make sure to use the dataset that contains the float values as the 
 # dataset you use in your filtering function.
+
+def omit_comma(string):
+    if string.find(',') != -1:
+        index = string.find(',')
+        new_string = string[:index] + string[index+1:]
+        return new_string
+    else:
+        return string
+
+def change_to_float(string):
+    if string != 'None':
+        split_str = string.split('$')
+        # print(split_str)
+        format_string = omit_comma(split_str[-1])
+        # print(format_string)
+        return float(format_string)
+    else:
+        return string
+
+# df[df.Value.apply(change_to_float)]
+not_null_value_df = df[df.Value != 'None']
+# print(len(df))
+# print(len(not_null_value_df))
+# print(not_null_value_df.Value)
+
+df['value_num'] = df.apply(lambda row: 
+  change_to_float(row['Value']),
+  axis=1)
+  
+# print(df.head())
+## what is the average value of of questions that contain the word King
+## write a function that does this
+def average_value_word(word):
