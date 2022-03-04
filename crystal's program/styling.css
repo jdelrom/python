@@ -1,4 +1,16 @@
 ul.data-inputs {
     list-style-type: none;
     padding-left: 0;
+    display: none;
+}
+
+head.header {
+    text-align: center;
+    font-size: 38px;
+    background-color: darkgreen;
+    color: white;
+}
+
+div.main-div {
+    display: flex;
 }

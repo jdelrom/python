@@ -5,30 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styling.css">
+    <script src="functions.js" type="text/javascript"></script>
     <title>Interior Design Dimension Helper</title>
 </head>
 <body>
-    <header>
+    <header class="header">
         Let's get those dimensions worked out for ya
     </header>
-    <div class="div-inputs">
-        <ul class="data-inputs">
-            <li>
-                <label for="length">Input Height: </label>
-                <input type="text" class='length' id="length">
-            </li>
-            <li>
-                <label for="width">Input Width: </label>
-                <input type="text" class='width' id="width">
-            </li>
-            <li>
-                <label for="tile-size">Input Tile Size: </label>
-                <input type="text" class='tile-size' id="tile-size">
-            </li>
-        </ul>
-        
-        <button>Answer</button>
+    <div class="main-div" id="main-div">
+        <div class="div-inputs">
+            <select onchange="hide()" name="formulas-drop-down" id="formulas-drop-down" class="formulas-drop-down">
+                <option value="formula-default" selected disabled hidden>Choose a formula </option>
+                <option value="formula1">Formula 1</option>
+                <option value="formula2">Formula 2</option>
+                <option value="formula3">Formula 3</option>
+            </select>
+            <ul class="data-inputs" id="data-inputs">
+                <li>
+                    <!-- <label for="length">Input Height: </label> -->
+                    <input type="text" class='length' id="length" placeholder="Input Height">
+                </li>
+                <li>
+                    <!-- <label for="width">Input Width: </label> -->
+                    <input type="text" class='width' id="width" placeholder="Input Width">
+                </li>
+                <li>
+                    <!-- <label for="tile-size">Input Tile Size: </label> -->
+                    <input type="text" class='tile-size' id="tile-size" placeholder="Input Tile Size">
+                </li>
+            </ul>
+            
+            <button>Answer</button>
+        </div>
+        <div class="image">
+            <img src="https://images.squarespace-cdn.com/content/v1/5fb726c05bfde8153a6d5eae/a5f9a411-840b-4940-9597-2b265552e333/5_1+-+Photo.jpg?format=750w" alt="3dbrightdesign">
+        </div>
+        <div class="answer">
+
+        </div>
     </div>
-    
 </body>
 </html>
